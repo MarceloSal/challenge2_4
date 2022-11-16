@@ -8,6 +8,7 @@ namespace :dev do
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Criando o administrador padrão...") { %x(rails dev:add_default_admin) }
       show_spinner("Adicionando administradores extras...") { %x(rails dev:add_extra_admins) }
+      
     else
       puts "Você não está em ambiente de desenvolvimento!"
     end
@@ -35,6 +36,8 @@ namespace :dev do
       )
     end
   end
+
+  
 
   private
   def show_spinner(msg_start, msg_end = "Concluído!")

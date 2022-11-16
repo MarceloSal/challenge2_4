@@ -4,9 +4,21 @@ pt-BR:
       admin: 
         one: Administrador
         other: Administradores
+      citizen: Munícipe
+      other: Municipes  
     attributes:
       admin:
         id: Código
         email: Email
         created_at: Criado em
         updated_at: Atualizado em
+      citizen:
+        id: Código
+        first_name: Primeiro nome
+        last_name: Sobrenome
+        cpf: cpf
+        cns: cns
+        email: Email
+        phone_number: Telefone
+        photo: Foto
+        status: Status  
