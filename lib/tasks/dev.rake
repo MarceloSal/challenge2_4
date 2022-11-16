@@ -8,6 +8,7 @@ namespace :dev do
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Criando o administrador padrão...") { %x(rails dev:add_default_admin) }
       show_spinner("Adicionando administradores extras...") { %x(rails dev:add_extra_admins) }
+      show_spinner("Adicionando Munícipe...") { %x(rails dev:add_citizen) }
       
     else
       puts "Você não está em ambiente de desenvolvimento!"
@@ -37,7 +38,19 @@ namespace :dev do
     end
   end
 
-  
+  desc "Adiciona o Munícipe"
+  task add_citizen: :environment do
+    Citizen.create!(
+      first_name: 'Marcelo',
+      last_name: 'Salmeron',
+      cpf: '27388297839',
+      cns: '0000000000000',
+      email: 'salmeron.marcelo@gmail.com',
+      birthday: 11/04/1975,
+      phone: '11996231987',
+      status: true
+    )
+  end
 
   private
   def show_spinner(msg_start, msg_end = "Concluído!")

@@ -3,21 +3,19 @@
 one:
   first_name: MyString
   last_name: MyString
-  cpf: MyText
-  cns: MyText
-  email: MyText
-  birthday: 2022-11-14
-  phone_number: MyText
-  photo: MyString
-  status: MyString
+  cpf: MyString
+  cns: MyString
+  email: MyString
+  birthday: 2022-11-16
+  phone: MyString
+  status: false
 
 two:
   first_name: MyString
   last_name: MyString
-  cpf: MyText
-  cns: MyText
-  email: MyText
-  birthday: 2022-11-14
-  phone_number: MyText
-  photo: MyString
-  status: MyString
+  cpf: MyString
+  cns: MyString
+  email: MyString
+  birthday: 2022-11-16
+  phone: MyString
+  status: false
