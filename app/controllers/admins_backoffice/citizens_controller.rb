@@ -6,22 +6,28 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
   
     def index
       @citizens = Citizen.all
+      
+      
     end
   
     def new
       @citizen = Citizen.new
+      @citizen.build_citizen_address
     end
   
     def create
       @citizen = Citizen.new(params_citizen)
       if @citizen.save
+
         redirect_to admins_backoffice_citizens_path, notice: 'Municipe cadastrado com sucesso'
+        
       else 
         render :edit
       end
     end
   
     def edit
+      @citizen.build_citizen_address
       #@admin = Admin.find(params[:id])
     end
   
@@ -30,7 +36,9 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
       #params_admin = 
   
       if @citizen.update(params_citizen)
+        @citizen.build_citizen_address
         redirect_to admins_backoffice_citizens_path, notice: 'Municipe atualizado com sucesso'
+        
       else 
         render :edit
       end
@@ -47,7 +55,8 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
     private
   
     def params_citizen
-      params.require(:citizen).permit(:first_name, :last_name, :cpf, :cns, :email, :birthday, :phone, :status)
+      params.require(:citizen).permit(:first_name, :last_name, :cpf, :cns, :email, :birthday, :phone, :status,
+      citizen_address_attributes: [:id, :zip_code, :public_place, :complement, :district, :city, :federative_unit, :ibge])
     end
   
     def set_citizen

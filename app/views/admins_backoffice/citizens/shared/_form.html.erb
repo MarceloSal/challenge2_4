@@ -45,19 +45,37 @@
             
            
             <%=form.label :first_name  %><span class= 'red'>*</span>
-            <%=form.text_field :first_name , class:"form-control" %>
+            <%=form.text_field :first_name , id: "first_name", class:"form-control" %>
             <%=form.label :last_name%><span class= 'red'>*</span>
-            <%=form.text_field :last_name , class:"form-control" %>
+            <%=form.text_field :last_name , id: "last_name", class:"form-control" %>
             <%=form.label :cpf%><span class= 'red'>*</span>
-            <%=form.text_field :cpf, class:"form-control" %>
+            <%=form.text_field :cpf, id: "cpf", class:"form-control" %>
             <%=form.label :cns%><span class= 'red'>*</span>
             <%=form.text_field :cns, class:"form-control" %>
             <%=form.label :email%><span class= 'red'>*</span>
-            <%=form.text_field :email, class:"form-control" %>
+            <%=form.text_field :email, id: "email", class:"form-control" %>
             <%=form.label :birthday%><span class= 'red'>*</span>
-            <%=form.text_field :birthday, class:"form-control datepicker" %>
+            <%=form.text_field :birthday, id: "birthday", class:"form-control datepicker" %>
             <%=form.label :phone%><span class= 'red'>*</span>
-            <%=form.text_field :phone, class:"form-control" %>
+            <%=form.text_field :phone, id: "phone", class:"form-control" %>
+
+            <%=form.fields_for :citizen_address do |address_form|%>
+                <%=address_form.label :zip_code%><span class= 'red'>*</span>
+                <%=address_form.text_field :zip_code, id: "cep", class:"form-control" %>
+                <%=address_form.label :public_place%><span class= 'red'>*</span>
+                <%=address_form.text_field :public_place, id: "rua", class:"form-control" %>
+                <%=address_form.label :complement%><span class= 'red'>*</span>
+                <%=address_form.text_field :complement, id: "complemento", class:"form-control" %>
+                <%=address_form.label :district%><span class= 'red'>*</span>
+                <%=address_form.text_field :district, id: "bairro", class:"form-control" %>
+                <%=address_form.label :city%><span class= 'red'>*</span>
+                <%=address_form.text_field :city, id: "cidade", class:"form-control" %>
+                <%=address_form.label :federative_unit%><span class= 'red'>*</span>
+                <%=address_form.text_field :federative_unit, id: "uf", class:"form-control" %>
+                <%=address_form.label :ibge%><span class= 'red'>*</span>
+                <%=address_form.text_field :ibge, id: "ibge", class:"form-control" %>
+            <%end%>
+
             <%=form.label :status%><span class= 'red'>*</span>
             <%=form.text_field :status, class:"form-control" %>
            

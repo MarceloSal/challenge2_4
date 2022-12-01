@@ -12,6 +12,14 @@
                 <th>Email</th>
                 <th>Data de aniversário</th>
                 <th>Telefone</th>
+                <th>CEP</th>
+                <th>Logradouro</th>
+                <th>Complemento</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>IBGE</th>
+
                 <th>Status</th>
                 <th>
                   <%=link_to new_admins_backoffice_citizen_path, class:"btn btn-success btn-circle" do%>
@@ -23,7 +31,7 @@
         </thead>
             
         <tbody>
-            <% @citizens.each do |citizen| %>
+            <% @citizens.each do |citizen, citizen_address| %>
                 <tr>
                     <td><%= citizen.id %></td>
                     <td><%= citizen.first_name %></td>
@@ -33,7 +41,18 @@
                     <td><%= citizen.email %></td>
                     <td><%= citizen.birthday %></td>
                     <td><%= citizen.phone %></td>
+                    <td><%= citizen.citizen_address.zip_code %></td>
+                    <td><%= citizen.citizen_address.public_place %></td>
+                    <td><%= citizen.citizen_address.complement %></td>
+                    <td><%= citizen.citizen_address.district %></td>
+                    <td><%= citizen.citizen_address.city %></td>
+                    <td><%= citizen.citizen_address.federative_unit %></td>
+                    <td><%= citizen.citizen_address.ibge %></td>
+                    
+                    
+                    
                     <td><%= citizen.status %></td>
+                    
                     <td style="width: 10em">
                         <%= link_to edit_admins_backoffice_citizen_path(citizen), class:"btn btn-primary btn-circle" do %>
                              <i class="fa fa-edit"></i>
