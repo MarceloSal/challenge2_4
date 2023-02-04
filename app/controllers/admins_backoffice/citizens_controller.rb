@@ -1,7 +1,7 @@
 class AdminsBackoffice::CitizensController < AdminsBackofficeController
   
     
-    before_action :set_citizen, only: [:edit, :update, :destroy]
+    before_action :set_citizen, only: [:edit, :update]
     
   
     def index
@@ -12,13 +12,13 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
   
     def new
       @citizen = Citizen.new
-      @citizen.build_citizen_address
+      @citizen.build_citizen_address 
     end
   
     def create
       @citizen = Citizen.new(params_citizen)
       if @citizen.save
-
+        
         redirect_to admins_backoffice_citizens_path, notice: 'Municipe cadastrado com sucesso'
         
       else 
@@ -27,7 +27,7 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
     end
   
     def edit
-      @citizen.build_citizen_address
+      #@citizen.build_citizen_address
       #@admin = Admin.find(params[:id])
     end
   
@@ -36,21 +36,23 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
       #params_admin = 
   
       if @citizen.update(params_citizen)
-        @citizen.build_citizen_address
+        
         redirect_to admins_backoffice_citizens_path, notice: 'Municipe atualizado com sucesso'
         
       else 
         render :edit
       end
     end
+
+    
   
-    def destroy
-      if @citizen.destroy
-        redirect_to admins_backoffice_citizens_path, notice: 'Municipe excluído com sucesso'
-      else 
-        render :index
-      end
-    end
+    # def destroy
+    #   if @citizen.destroy
+    #     redirect_to admins_backoffice_citizens_path, notice: 'Municipe excluído com sucesso'
+    #   else 
+    #     render :index
+    #   end
+    # end
     
     private
   
@@ -61,6 +63,7 @@ class AdminsBackoffice::CitizensController < AdminsBackofficeController
   
     def set_citizen
       @citizen = Citizen.find(params[:id])
+      
     end
 end
 

@@ -10,6 +10,8 @@ namespace :dev do
       show_spinner("Adicionando administradores extras...") { %x(rails dev:add_extra_admins) }
       show_spinner("Adicionando Munícipe...") { %x(rails dev:add_citizen) }
       
+      
+      
     else
       puts "Você não está em ambiente de desenvolvimento!"
     end
@@ -51,6 +53,10 @@ namespace :dev do
       status: true
     )
   end
+
+  
+
+  
 
   private
   def show_spinner(msg_start, msg_end = "Concluído!")

@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 
-                <th>#</th>
+                <th>'#'</th>
                 <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>CPF</th>
@@ -12,6 +12,7 @@
                 <th>Email</th>
                 <th>Data de aniversário</th>
                 <th>Telefone</th>
+                <th>Status</th>
                 <th>CEP</th>
                 <th>Logradouro</th>
                 <th>Complemento</th>
@@ -20,7 +21,7 @@
                 <th>UF</th>
                 <th>IBGE</th>
 
-                <th>Status</th>
+                
                 <th>
                   <%=link_to new_admins_backoffice_citizen_path, class:"btn btn-success btn-circle" do%>
                      <i class="fas fa-plus"></i>
@@ -41,26 +42,23 @@
                     <td><%= citizen.email %></td>
                     <td><%= citizen.birthday %></td>
                     <td><%= citizen.phone %></td>
-                    <td><%= citizen.citizen_address.zip_code %></td>
-                    <td><%= citizen.citizen_address.public_place %></td>
-                    <td><%= citizen.citizen_address.complement %></td>
-                    <td><%= citizen.citizen_address.district %></td>
-                    <td><%= citizen.citizen_address.city %></td>
-                    <td><%= citizen.citizen_address.federative_unit %></td>
-                    <td><%= citizen.citizen_address.ibge %></td>
-                    
-                    
-                    
                     <td><%= citizen.status %></td>
+                    <td><%=citizen.try(:citizen_address).try(:zip_code)%><td>
+                    <td><%=citizen.try(:citizen_address).try(:public_place)%><td>
+                    <td><%=citizen.try(:citizen_address).try(:complement)%><td>
+                    <td><%=citizen.try(:citizen_address).try(:district)%><td>
+                    <td><%=citizen.try(:citizen_address).try(:city)%><td>
+                    <td><%=citizen.try(:citizen_address).try(:federative_unit)%><td>
+                    <td><%=citizen.try(:citizen_address).try(:ibge)%><td>
                     
-                    <td style="width: 10em">
+                    
+                    
+                    
+                    <td style="width: 8em">
                         <%= link_to edit_admins_backoffice_citizen_path(citizen), class:"btn btn-primary btn-circle" do %>
                              <i class="fa fa-edit"></i>
                         <% end %>
-                        <%= link_to admins_backoffice_citizen_path(citizen), method: :delete, class: "btn btn-danger btn-circle", 
-                             data: { confirm: "Deseja realmente excluir?" } do %>
-                             <i class="fa fa-minus"></i>
-                        <% end %>
+                        
                         
                     </td>
                 </tr>
